@@ -6,19 +6,32 @@ get '/'  do
 end
 
 post '/login' do
-	redirect '/home'
+	user = User.authenticate( params[:email],
+                            params[:password] )
+  	if user
+    	session[:id] = user.id
+    	erb :create
+  	else
+		erb :index
+  	end
+  end
+    redirect '/home'
 end
 
 post '/create' do
-	redirect '/'
+	redirect '/' 
 end
 
 get '/home' do
+	@round = Round.all
 	erb :choose_deck
 	redirect '/pre'
 end
 
 get '/pre' do
+	redirect '/' unless session[:id]
+	@user = User.find(session[:id])
+	@round = Round.new(params[:round])
 	erb :display_cards
 	# display cards
 end
@@ -30,6 +43,10 @@ post '/post' do
 	# either reload ruby or keep request
 end
 
+delete '/logout' do
+	session.clear
+	redirect '/'
+end
 get '/finsh' do
 	erb :display_results
 	# finish page
@@ -37,7 +54,6 @@ get '/finsh' do
 end
 
 get '/review' do
-
 	# tbd
 end
 
