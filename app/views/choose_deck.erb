@@ -1,0 +1,37 @@
+<!-- user chooses whichever deck to start -->
+<!-- routed from login page -->
+<!-- shows each deck object in button -->
+<!-- UX #2 -->
+<html>
+	<head>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div id="user_name">
+					<!-- Link to user profile -->
+					<a href="/<%= @user.id %>/stats"><%= @user.email	%></a>
+				</div>
+				<div id="logout">
+					<!-- Ends session -->
+					<form action="/logout" method="post">
+						<input type="hidden" name="_method" value="delete"/>
+						<input type="submit" value="Logout"/>
+					</form>
+				</div>
+			</nav>
+		</header>
+		<container>
+			<div class="deck_option">
+
+			</div>
+			<div class="user_input">
+			<form action="/guess" method="post">
+				<input type="text" name="guess[answer]" placeholder="Answer here"/>
+				<input type="submit" value="Correct?"/>
+			</form>
+			</div>
+		</container>
+		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>
+	</body>
+</html>

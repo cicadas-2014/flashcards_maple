@@ -1,0 +1,29 @@
+<!-- login and register user -->
+<!-- UX #1 -->
+<html>
+	<head>
+	</head>
+	<body>
+		<header>
+			<h1>Flashcard Game</h1>
+			<h2>Welcome to our game...</h2>
+		</header>
+		<container>
+			<div class="user_input">
+				<form action="/login" action="post">
+					<input type="text" name="user[email]"  placeholder="Email"/>
+					<input type="password" name="user[password]" placeholder="Password"/> 
+					<input type="submit" value="Login"/>
+				</form>
+			</div>
+			<div class="user_input">
+				<form action="/create" action="post">
+					<input type="text" name="user[email]"  placeholder="Email"/>
+					<input type="password" name="user[password]" placeholder="Password"/> 
+					<input type="submit" value="Create"/>
+				</form>
+			</div>
+		</container>
+		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>
+	</body>
+</html>
