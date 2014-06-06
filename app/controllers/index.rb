@@ -5,6 +5,14 @@ get '/'  do
 	# 
 end
 
+post '/login' do
+	redirect '/home'
+end
+
+post '/create' do
+	redirect '/'
+end
+
 get '/home' do
 	erb :choose_deck
 	redirect '/pre'
