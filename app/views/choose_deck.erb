@@ -2,17 +2,18 @@
 <!-- routed from login page -->
 <!-- shows each deck object in button -->
 <!-- UX #2 -->
+<!-- Classes: User -->
 <html>
 	<head>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<div id="user_name">
+				<div class="user_name">
 					<!-- Link to user profile -->
 					<a href="/<%= @user.id %>/stats"><%= @user.email	%></a>
 				</div>
-				<div id="logout">
+				<div class="logout">
 					<!-- Ends session -->
 					<form action="/logout" method="post">
 						<input type="hidden" name="_method" value="delete"/>
@@ -23,13 +24,14 @@
 		</header>
 		<container>
 			<div class="deck_option">
-
-			</div>
-			<div class="user_input">
-			<form action="/guess" method="post">
-				<input type="text" name="guess[answer]" placeholder="Answer here"/>
-				<input type="submit" value="Correct?"/>
-			</form>
+				<!-- Displays all deck options as buttons -->
+				<% @decks.each do |deck| %>
+					<form action="/home" method="post">
+					<!-- Returns deck selection -->
+						<input type="hidden" name="deck[id]" value="<%= deck.id %>"/>
+						<input type="submit" value="<%= deck.name %>"/>
+					</form>
+				<% end %>
 			</div>
 		</container>
 		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>

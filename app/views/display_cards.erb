@@ -1,4 +1,48 @@
 <!-- displays each card in game -->
 <!-- iterates over cards of certain deck and displays front -->
 <!-- has form for answer where input sends back a response for guess class -->
-<!-- UI #3 -->
+<!-- UX #3 -->
+<!-- Classes in this page: Round, User, Guess, Card -->
+<html>
+	<head>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="user_name">
+					<!-- Link to user profile -->
+					<a href="/<%= @user.id %>/stats"><%= @user.email	%></a>
+				</div>
+				<div class="score">
+					<!-- Displays correct out of attempts -->
+					<%= @round.score %>
+				</div>
+				<div class="logout">
+					<!-- Ends session -->
+					<form action="/logout" method="post">
+						<input type="hidden" name="_method" value="delete"/>
+						<input type="submit" value="Logout"/>
+					</form>
+				</div>
+			</nav>
+		</header>
+		<container>
+			<div class="card_display">
+			<!-- Returns cards in deck one by one -->
+				<div class="card">
+					<p><%= @card.term %></p>
+				</div>
+			</div>
+			<div class="user_input">
+				<form action="/guess" method="post">
+					<input type="text" name="guess[answer]" placeholder="Answer here"/>
+					<input type="submit" value="Correct?"/>
+				</form>
+			</div>
+			<div class="quit_option">
+				<!-- End round here -->
+			</div>
+		</container>
+		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>
+	</body>
+</html>

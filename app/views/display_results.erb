@@ -2,3 +2,30 @@
 displays user's round score
 displays user's best score -->
 <!-- UX #4 -->
+<!-- Classes: User, Round -->
+
+<html>
+	<head>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="user_name">
+					<!-- Link to user profile -->
+					<a href="/<%= @user.id %>/stats"><%= @user.email	%></a>
+				</div>
+				<div class="logout">
+					<!-- Ends session -->
+					<form action="/logout" method="post">
+						<input type="hidden" name="_method" value="delete"/>
+						<input type="submit" value="Logout"/>
+					</form>
+				</div>
+			</nav>
+		</header>
+		<container>
+			<!-- Display game stats -->
+		</container>
+		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>
+	</body>
+</html>
