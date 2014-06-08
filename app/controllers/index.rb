@@ -64,18 +64,14 @@ end
 # 	redirect '/'
 # end
 
-# get '/finsh' do
-# 	erb :display_results
-# 	# finish page
-# 	# stats of the game
-# end
+get '/finish' do
+	erb :display_results
+	# finish page
+	# stats of the game
+end
 
-# get '/review' do
-# 	# tbd
-# end
-
-# get '/stats' do
-# 	erb :display_user
-# 	# user stats
-# 	# user profile
-# end
+get '/stats' do
+	erb :display_user
+	# user stats
+	# user profile
+end

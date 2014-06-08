@@ -17,11 +17,11 @@
 			<nav>
 				<div id="user-name">
 					<!-- Link to user profile -->
-					<a href="/<%= 1 %>/stats"><%= 'dadams18@gmail.com'	%></a>
+					<p>User: <a href="/stats"><%= 'dadams18@gmail.com'	%></a></p>
 				</div>
 				<div id="score">
 					<!-- Displays correct out of attempts -->
-					<%= 24 %> / <%= 30 %>
+					<p>Score: <span style="font-weight: normal"><%= 24 %> / <%= 30 %></span></p>
 				</div>
 				<div id="log-out">
 					<!-- Ends session -->
@@ -33,21 +33,21 @@
 			</nav>
 		</header>
 		<div class="container">
-			<div class="card_display">
+			<div class="card-display">
 			<!-- Returns cards in deck one by one -->
 				<div class="card">
 					<p><%= @card[:term] %></p>
 				</div>
 			</div>
 			<div class="form-group" id="user-input">
-				<form action="/guess" method="post" role="form" class="form-inline">
+				<form action="/guess" method="post" role="form">
 					<label class="sr-only" for="answer">Answer</label>
-					<input type="text" name="guess[answer]" placeholder="Answer here" class="form-control"/>
+					<input type="text" name="guess[answer]" placeholder="Answer here" class="form-control" id="answer-form"/>
 					<button type="submit" class="btn btn-default">Answer</button>
 				</form>
 			</div>
-			<div class="quit_option">
-				<!-- End round here -->
+			<div class="quit-option">
+				<p><a href="/finish">End Game</a></p>
 			</div>
 		</div>
 		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>

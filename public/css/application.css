@@ -14,8 +14,8 @@ header {
 	margin-top: 0;
 	padding: 20px 0;
 	background-color: #FF6600;
-	opacity: 0.6;
-	min-height: 100px;
+	opacity: 0.8;
+	min-height: 130px;
 }
 
 header:hover {
@@ -23,12 +23,14 @@ header:hover {
 }
 
 nav {
-	width: 15%;
+	width: 16%;
 	float: right;
 	margin-right: 20px;
+	display: inline-block;
 }
 
-#user-name p {
+nav p {
+	font-weight: bold;
 	color: #FFF;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-decoration: none;
@@ -36,6 +38,7 @@ nav {
 }
 
 nav a {
+	font-weight: normal;
 	color: #FFF;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-decoration: none;
@@ -58,9 +61,8 @@ h2 {
 }
 
 h3 {
-	font-weight: bold;
 	font-size: 24px;
-	color: #909090;
+	color: #555;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -106,13 +108,11 @@ button {
 }
 
 #user-name {
-	display: block;
-	float: right;
+	text-align: right;
 }
 
 #score {
-	display: block;
-	float: right;
+	text-align: right;
 }
 
 #log-out {
@@ -132,6 +132,65 @@ button {
 
 #deck:hover {
 	background-color: #FFCC66;
+}
+
+.title {
+	width: 50%;
+	display: inline;
+}
+
+.card {
+	margin: 30px auto;
+	border: 1px solid grey;
+	border-radius: 4px;
+	text-align: center;
+	background-color: #FFF;
+	max-width: 350px;
+	opacity: 0.8;
+	padding: 30px;
+}
+
+#answer-form {
+	margin: 20px auto;
+	max-width: 300px;
+}
+
+.quit-option {
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px;
+}
+
+.quit-option a {
+	font-weight: normal;
+	color: #555;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-decoration: none;
+	font-size: 24px;
+}
+
+.user-stats {
+	margin: 30px auto;
+	text-align: center;
+}
+
+.user-stats p {
+	color: #555;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.user-stats a {
+	text-decoration: none;
+	color: #555;
+	font-weight: bold;
+}
+
+.user-stats a:hover {
+	text-decoration: none;
+	color: #FFCC66;
 }
 
 footer {
