@@ -6,8 +6,8 @@ get '/'  do
 end
 
 post '/login' do
-	@user = User.authenticate(params[:password])
-  if @user.nil?
+  @user = User.find_by(email: params[:user][:email])
+  if @user.nil? || !@user.authenticate(params[:user][:password])
     redirect '/'
   else
     session[:user_id] = @user.id
@@ -16,7 +16,7 @@ post '/login' do
 end
 
 post '/create' do 
-	@user = User.create(params[:email], params[:password])
+	@user = User.create(params[:user])
 	session[:user_id] = @user.id
     redirect '/home'
 end
