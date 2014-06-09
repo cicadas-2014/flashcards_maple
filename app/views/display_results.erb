@@ -30,8 +30,8 @@ displays user's best score -->
 		<div class="container">
 			<div class="user-stats">
 				<p>User: <%= User.find(session[:user_id]).email %></p>
-				<p>Current Score: <%= 24 %> / <%= 30 %></p>
-				<p>Best Score: <%= 55 %> / <%= 60 %></p>
+				<p>Current Score: <%= @round.num_correct %> / <%= @round.num_played %></p>
+				<p>Best Score: <%= @best_round.num_correct %> / <%= @best_round.num_played %></p>
 					<form action="/home" method="post">
 						<input type="hidden" name="_method" value="delete"/>
 						<button type="submit" class="btn btn-default">Pick another deck</button>

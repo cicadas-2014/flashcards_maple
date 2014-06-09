@@ -13,4 +13,11 @@ class Round < ActiveRecord::Base
   		Guess.create(round_id: self.id, card_id: card.id)
   	end
   end
+
+  def update_results
+    self.num_played = self.guesses.where("attempts > ?", 0).length
+    self.num_correct = self.guesses.where(correct_guess: true).length
+    self.percent_correct = 1.0 * self.num_correct / self.num_played
+    self.save
+  end
 end

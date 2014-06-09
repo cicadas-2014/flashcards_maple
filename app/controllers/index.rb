@@ -72,6 +72,8 @@ end
 get '/finish' do
 	@user = User.find(session[:user_id])
 	@round = Round.find(session[:round])
+	@round.update_results
+	@best_round = Round.where(user_id: @user.id).where.not(percent_correct: nil).order(percent_correct: :desc).first
 	erb :display_results
 	# finish page
 	# stats of the game
@@ -79,6 +81,7 @@ end
 
 get '/stats' do
 	@user = User.find(session[:user_id])
+	@best_round = Round.where(user_id: @user.id).where.not(percent_correct: nil).order(percent_correct: :desc).first	
 	erb :display_user
 end
 
@@ -88,6 +91,5 @@ delete '/logout' do
 end
 
 delete '/home' do
-	session[:round].clear
 	redirect '/home'
 end
