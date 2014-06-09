@@ -35,17 +35,17 @@
 		<div class="container">
 			<div class="card-display">
 			<!-- Returns cards in deck one by one -->
-			<div class="card">
 				<% unless @correct.nil? %>
-					<% if @correct %>
-						<div id="correct">You were <%= @correct ? "correct" : "incorrect" %></div>
-					<% else %>
-						<div id="incorrect">You were <%= @correct ? "correct" : "incorrect" %></div>
+					<div class="card">
+						<% if @correct %>
+							<div id="correct">You were <%= @correct ? "correct" : "incorrect" %></div>
+						<% else %>
+							<div id="incorrect">You were <%= @correct ? "correct" : "incorrect" %></div>
+						<% end %>
+						<div>Definition:<%= @prev_def %></div>
+						<div>Answer:<%= @prev_term %></div>
 					<% end %>
-					<div>Definition:<%= @prev_def %></div>
-					<div>Answer:<%= @prev_term %></div>
-				<% end %>
-				</div>
+					</div>
 				<div class="card">
 					<p><%= @card.definition %></p>
 				</div>
