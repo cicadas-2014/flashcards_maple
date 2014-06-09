@@ -17,7 +17,7 @@ displays user's best score -->
 		<header>
 			<nav>
 				<div id="user-name">
-					<p>User: <a href="/stats"><%= 'dadams18@gmail.com'	%></a></p>
+					<p>User: <a href="/stats"><%= User.find(session[:user_id]).email %></a></p>
 				</div>
 				<div id="log-out">
 					<form action="/logout" method="post">
@@ -29,7 +29,7 @@ displays user's best score -->
 		</header>
 		<div class="container">
 			<div class="user-stats">
-				<p>User: <%= 'dadams18@gmail.com'	%></p>
+				<p>User: <%= User.find(session[:user_id]).email %></p>
 				<p>Current Score: <%= 24 %> / <%= 30 %></p>
 				<p>Best Score: <%= 55 %> / <%= 60 %></p>
 					<form action="/home" method="post">

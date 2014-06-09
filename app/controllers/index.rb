@@ -28,21 +28,21 @@ get '/home' do
 end
 
 post '/home' do
-	@deck = Deck.find(params[:id])
+	@deck = Deck.find(params[:deck][:id])
 	session[:deck] = @deck.id
 	redirect "/game"
 end
 
-get '/game/' do
-	@cards = Card.where(deck_id: session[:deck])
-	@cards.shuffle!
+get '/game' do
+	@deck = Deck.find(session[:deck])
+	@cards = @deck.cards.shuffle
 	@card = @cards[0]
-	@round = Round.create(params[:user], params[:deck])
+	@round = Round.create(user_id: params[:user], deck_id: params[:deck])
 	session[:round] = @round.id
 	erb :display_cards
 end
 
-post '/game' do 
+post '/guess' do 
 	@guess = Guess.create(params[:guess])
 	erb :display_cards
 end

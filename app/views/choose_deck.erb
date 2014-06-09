@@ -17,7 +17,7 @@
 			<nav>
 				<div id="user-name">
 					<!-- Link to user profile -->
-					<p>User: <a href="/stats"><%= 'dadams18@gmail.com'	%></a></p>
+					<p>User: <a href="/stats"><%= User.find(session[:user_id]).email %></a></p>
 				</div>
 				<div id="log-out">
 					<!-- Ends session -->
@@ -34,8 +34,8 @@
 				<% @decks.each do |deck| %>
 					<form action="/home" method="post">
 					<!-- Returns deck selection -->
-						<input type="hidden" name="deck[id]" value="<%= @decks.index(deck) %>"/>
-						<button type="submit" class="btn btn-default" id="deck"><%= deck %></button>
+						<input type="hidden" name="deck[id]" value="<%= deck.id %>"/>
+						<button type="submit" class="btn btn-default" id="deck"><%= deck.category %></button>
 					</form>
 				<% end %>
 			</div>
