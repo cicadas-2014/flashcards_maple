@@ -171,10 +171,6 @@ button {
 }
 
 .user-stats {
-<<<<<<< HEAD
-	margin: 30px auto;
-	text-align: center;
-=======
 	border: 1px solid grey;
 	margin: 30px auto;
 	text-align: center;
@@ -183,7 +179,6 @@ button {
 	max-width: 350px;
 	opacity: 0.8;
 	padding: 30px;
->>>>>>> e1e6f7ccca19f33b9741fe2d063b52b84fd66098
 }
 
 .user-stats p {
@@ -191,11 +186,7 @@ button {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-decoration: none;
 	font-weight: normal;
-<<<<<<< HEAD
-	font-size: 20px;
-=======
 	font-size: 24px;
->>>>>>> e1e6f7ccca19f33b9741fe2d063b52b84fd66098
 }
 
 .user-stats a {
@@ -215,4 +206,14 @@ footer {
 	bottom: 0;
 	font-size: 12px;
 	color: #909090;
+}
+
+#correct {
+	color: green;
+	font-weight: bold;
+}
+
+#incorrect {
+	color: red;
+	font-weight: bold;
 }
