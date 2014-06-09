@@ -1,5 +1,5 @@
 class Deck < ActiveRecord::Base
   has_many :cards
-  validate :category, presence: true
-  validate :category, uniqueness: true
+  validates :category, presence: true
+  validates :category, uniqueness: true
 end
