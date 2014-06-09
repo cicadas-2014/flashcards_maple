@@ -41,6 +41,7 @@ post '/home' do
 	@guess = Round.find(session[:round]).next_guess
 	@card = @guess.card
 	session[:guess] = @guess.id
+	@streak = @round.streak
 	erb :display_cards
 end
 
@@ -56,6 +57,8 @@ post '/guess' do
 	@prev_def = @guess.card.definition
 
 	@round = Round.find(session[:round])
+	@correct ? @round.update(streak: @round.streak+1) : @round.update(streak: 0)
+	@streak = @round.streak
 	@round.update_results
 	@num_correct = @round.num_correct
 	@num_played = @round.num_played

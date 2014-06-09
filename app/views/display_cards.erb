@@ -22,6 +22,9 @@
 				<div id="score">
 					<!-- Displays correct out of attempts -->
 					<p>Score: <span style="font-weight: normal"><%= @num_correct %> / <%= @num_played %></span></p>
+					<% if @streak > 0 %>
+						<p>Current Streak! <span style="font-weight: normal"><%= @streak %></span></p>
+					<% end %>
 				</div>
 				<div id="log-out">
 					<!-- Ends session -->
