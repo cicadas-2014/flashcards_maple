@@ -34,6 +34,9 @@ post '/home' do
 	@round = Round.create(user_id: session[:user_id], deck_id: session[:deck])
 	session[:round] = @round.id
 
+	@num_correct = 0
+	@num_played = 0
+
 	@round.create_guesses
 	@guess = Round.find(session[:round]).next_guess
 	@card = @guess.card
@@ -51,6 +54,11 @@ post '/guess' do
 	@guess.save
 	@prev_term = @guess.card.term
 	@prev_def = @guess.card.definition
+
+	@round = Round.find(session[:round])
+	@round.update_results
+	@num_correct = @round.num_correct
+	@num_played = @round.num_played
 
 	# get the next card for user
 	@guess = Round.find(session[:round]).next_guess
