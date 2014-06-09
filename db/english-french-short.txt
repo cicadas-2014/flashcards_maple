@@ -1,0 +1,16 @@
+everybody	tout le monde
+everything	tout
+excuse me	pardon, excusez-moi
+fall	tomber
+false	faux
+fast	jeûner
+few	peu
+find	trouver
+finish	finir
+quiet	tranquille, calme
+rake	arroser
+raspberry	framboise (f)
+real	vrai (m), vraie (f)
+right	droit (m), droite (f)
+salmon	saumon (m)
+search	chercher

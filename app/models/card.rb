@@ -3,6 +3,6 @@ class Card < ActiveRecord::Base
   has_many :guesses
   has_many :rounds, through: :guesses
   
-  validates :term, :defenition, presence: true
-  validates :term, :defenition, uniqueness: true
+  validates :term, :definition, presence: true
+  validates :term, :definition, uniqueness: true
 end

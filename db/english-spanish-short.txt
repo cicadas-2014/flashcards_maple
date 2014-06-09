@@ -1,0 +1,10 @@
+cook	cocinar
+database	base de datos
+donkey	asno (m), burro (m)
+earth	tierra (f)
+french fries	papas fritas (Mexico), patatas fritas (Spain)
+house	casa (f)
+jellyfish	medusa (f)
+lasagna	lasaña (f)
+lunch	almorzar
+name	nombrar
