@@ -96,5 +96,6 @@ delete '/logout' do
 end
 
 delete '/home' do
+	session.delete(:round)
 	redirect '/home'
 end
