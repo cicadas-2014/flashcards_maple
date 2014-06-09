@@ -30,10 +30,7 @@ end
 post '/home' do
 	@deck = Deck.find(params[:deck][:id])
 	session[:deck] = @deck.id
-	redirect "/game"
-end
 
-get '/game' do	
 	@correct = nil #the first time entering round, no concept of correctness
 
 	@round = Round.create(user_id: session[:user_id], deck_id: session[:deck])
