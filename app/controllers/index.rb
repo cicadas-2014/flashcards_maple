@@ -1,8 +1,6 @@
 get '/'  do
 	"Get Started!"
-	# redirect '/home'
 	erb :index
-	# 
 end
 
 post '/login' do
@@ -24,9 +22,9 @@ end
 get '/home' do
 	@decks = Deck.all
 	erb :choose_deck
-	# redirect '/pre'
 end
 
+# POST when user first starts a round
 post '/home' do
 	@deck = Deck.find(params[:deck][:id])
 	session[:deck] = @deck.id
@@ -37,12 +35,13 @@ post '/home' do
 	session[:round] = @round.id
 
 	@round.create_guesses
-	@guess = Guess.where(round_id: session[:round].to_s, attempts: 0).first
+	@guess = Round.find(session[:round]).next_guess
 	@card = @guess.card
 	session[:guess] = @guess.id
 	erb :display_cards
 end
 
+# POST when user enters a guess
 post '/guess' do 
 	# determine and update db if user guessed right
 	@guess = Guess.find(session[:guess])
@@ -54,7 +53,7 @@ post '/guess' do
 	@prev_def = @guess.card.definition
 
 	# get the next card for user
-	@guess = Guess.where(round_id: session[:round].to_s, attempts: 0).first
+	@guess = Round.find(session[:round]).next_guess
 
 	# if game is over, direct user to finish page
 	if @guess.nil?
@@ -70,15 +69,13 @@ get '/finish' do
 	@user = User.find(session[:user_id])
 	@round = Round.find(session[:round])
 	@round.update_results
-	@best_round = Round.where(user_id: @user.id).where.not(percent_correct: nil).order(percent_correct: :desc).first
+	@best_round = @user.best_round(session[:deck])
 	erb :display_results
-	# finish page
-	# stats of the game
 end
 
 get '/stats' do
 	@user = User.find(session[:user_id])
-	@best_round = Round.where(user_id: @user.id).where.not(percent_correct: nil).order(percent_correct: :desc).first	
+	@best_round = @user.best_round(session[:deck])
 	erb :display_user
 end
 

@@ -20,4 +20,8 @@ class Round < ActiveRecord::Base
     self.percent_correct = 1.0 * self.num_correct / self.num_played
     self.save
   end
+
+  def next_guess
+    self.guesses.where(attempts: 0).first
+  end
 end

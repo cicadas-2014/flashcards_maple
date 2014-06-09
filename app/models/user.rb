@@ -15,5 +15,13 @@ class User < ActiveRecord::Base
 	def authenticate(plaintext)
 		BCrypt::Password.new(self.hashed_password) == plaintext
 	end
+
+	def best_round(deck_id = nil)
+		if deck_id.nil?
+			self.rounds.where.not(percent_correct: nil).order(percent_correct: :desc).first
+		else
+			self.rounds.where(deck_id: deck_id).where.not(percent_correct: nil).order(percent_correct: :desc).first
+		end
+	end
 end
 
