@@ -17,11 +17,9 @@ displays user's best score -->
 		<header>
 			<nav>
 				<div id="user-name">
-					<!-- Link to user profile -->
 					<p>User: <a href="/stats"><%= 'dadams18@gmail.com'	%></a></p>
 				</div>
 				<div id="log-out">
-					<!-- Ends session -->
 					<form action="/logout" method="post">
 						<input type="hidden" name="_method" value="delete"/>
 						<button type="submit" class="btn btn-default">Logout</button>
@@ -34,7 +32,10 @@ displays user's best score -->
 				<p>User: <%= 'dadams18@gmail.com'	%></p>
 				<p>Current Score: <%= 24 %> / <%= 30 %></p>
 				<p>Best Score: <%= 55 %> / <%= 60 %></p>
-				<p><a href="/home">Choose another deck</a></p>
+					<form action="/home" method="post">
+						<input type="hidden" name="_method" value="delete"/>
+						<button type="submit" class="btn btn-default">Pick another deck</button>
+					</form>
 			</div>
 		</div>
 		<footer><p class="copyright">Copyright DBC Maple 2014</p></footer>

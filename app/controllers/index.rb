@@ -5,7 +5,6 @@ get '/'  do
 	# 
 end
 
-
 post '/login' do
 	@user = User.authenticate(params[:email], params[:hashed_password])
   if @user.nil?
