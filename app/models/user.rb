@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
 	validates :email, format: { with: /[\dA-Za-z]{2,}@[\dA-Za-z]{2,}\.[a-zA-Z]{2,3}/,
     message: "invalid e-mail" }	
 	def password=(plaintext)
-		self.password_hash = BCrypt::Password.create(plaintext)
+		self.hashed_password = BCrypt::Password.create(plaintext)
+	end
+
+	def authenticate(plaintext)
+		BCrypt::Password.new(self.hashed_password) == plaintext
 	end
 end
 
